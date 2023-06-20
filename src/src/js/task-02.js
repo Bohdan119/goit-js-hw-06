@@ -6,13 +6,25 @@ const ingredients = [
   'Herbs',
   'Condiments',
 ];
+const listElements = document.createElement('ul');
+listElements.classList.add('#ingredients')
+console.log(listElements);
 
-liElements.forEach(element => {
+const listItemEl = document.createElement('li');
+listItemEl.classList.add('item');
+// listItemEl.textContent = 'sdg';
+listElements.append(listItemEl);
 
-  const liElement = document.createElement('li');
-  liElement.textContent = element;
-  liElement.classList.add('item');
-});
+textEl = document.
 
-const allLiElements = document.querySelector('.ingredients');
-allLiElements.appendChild(liElements);
+
+// liElements.forEach(element => {
+
+//   const liElement = document.createElement('li');
+//   liElement.textContent = element;
+//   liElement.classList.add('item');
+// });
+
+// const allLiElements = document.querySelector('.ingredients');
+// allLiElements.appendChild(liElements);
+
