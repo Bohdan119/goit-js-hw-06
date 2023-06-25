@@ -6,25 +6,34 @@ const ingredients = [
   'Herbs',
   'Condiments',
 ];
-const listElements = document.createElement('ul');
-listElements.classList.add('#ingredients')
-console.log(listElements);
+// ________________________________________________________________
+// ________________________________________________________________
+const ulElement = document.querySelector('#ingredients');
+console.dir(ulElement);
 
-const listItemEl = document.createElement('li');
-listItemEl.classList.add('item');
-// listItemEl.textContent = 'sdg';
-listElements.append(listItemEl);
+ingredients.forEach(ingredient => {
+  const li = document.createElement('li');
+  li.textContent = ingredient;
+  li.classList.add('item');
+  ulElement.append(li);
+});
 
-textEl = document.
+// const newLi = document.createElement('li');
+// newLi = 
+// newLi.classList.add('item');
+// ulElement.appendChild(newLi);
 
 
-// liElements.forEach(element => {
 
-//   const liElement = document.createElement('li');
-//   liElement.textContent = element;
-//   liElement.classList.add('item');
+
+
+
+// ---------------------------------------------------------
+// ======== TRUE METHOD ============= NOT DELETED
+// ---------------------------------------------------------
+// ingredients.forEach((ingredient) => {
+//   const itemEl = `<li class="item"> '${ingredient}' </li>`;
+//   eatEl.insertAdjacentHTML('beforeend', itemEl);
 // });
-
-// const allLiElements = document.querySelector('.ingredients');
-// allLiElements.appendChild(liElements);
+// ==========================================================
 
