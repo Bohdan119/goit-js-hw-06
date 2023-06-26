@@ -18,15 +18,6 @@ ingredients.forEach(ingredient => {
   ulElement.append(li);
 });
 
-// const newLi = document.createElement('li');
-// newLi = 
-// newLi.classList.add('item');
-// ulElement.appendChild(newLi);
-
-
-
-
-
 
 // ---------------------------------------------------------
 // ======== TRUE METHOD ============= NOT DELETED
