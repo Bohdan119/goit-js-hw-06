@@ -1,0 +1,17 @@
+HW_JS_06
+Task 07
+
+Завдання:
+   При пересуванні повзунка має змінюватись розмір шрифта!
+Розробка ДЗ:
+
+          const range = document.querySelector("#font-size-control");
+          const span = document.querySelector("#text");
+
+             range.addEventListener("input", function(event) {
+              span.style.fontSize = this.value + "px";
+          });
+Розбираємо:  1) перші дві const то ми добиваємось до елементів з якими будемо працювати.
+            2) додаємо слухача і функціюю
+  Зміна renge додає слухача при події (була вказана в д/з) input і далі цей слухач виконує функцію звертаючись
+  текст.стилі.розмір_шрифту = розмір_шрифту(this(fontSize)).значення + "PX".

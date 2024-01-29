@@ -1,0 +1,61 @@
+HW_JS_06__task08
+
+ЗАВДАННЯ:
+ + 1) Обробка відправлення форми (form.login-form) повинна відбуватися відповідно до події SABMIT.
+ + 2) Сторінка не повинна обновлятись!
+ + 3) Якщо у формі є не заповнені поля, вивести ALERT з попередженням про те, що всі поля мають бути заповнені.
+ +4) Якщо заповнено всі поля зібрати дані форми через влястивість ELEMENTS. Дані мають збігатись Пошта -- пошта,
+        пароль -- пароль.
+ +5)Вивести об'єкт з введеними даними в консоль і очистити значення полів методом RESET.
+     Розв'язок: 
+                    СПОСІБ 1
+
+            const form = document.querySelector(".login-form"); (знаходимо нашу форму)
+            form.addEventListener("submit", (evt) => {          (додаємо слухача
+                  evt.preventDefault();                (метод який ліквідує всі дефолтні дії браузера(обновлення))
+                  console.log(evt);                    (виводимо в консоль об'єкт подій (evt))
+            });
+                       
+                       СПОСІБ 2
+
+     const form = document.querySelector(".login-form");
+
+       form.addEventListener("submit", handlerForm)
+
+         function handlerForm(evt) {
+         evt.preventDefault();
+         console.dir(evt);
+         }
+   
+
+  УВАГА ГОЛОВНИЙ РОЗВ'ЯЗОК:
+
+const form = document.querySelector(".login-form");  (Знайшов форму)
+
+form.addEventListener("submit", handlerForm)       (Додав слухача(подія -- sabmit, створена зміна -- handlerForm)
+
+function handlerForm(evt) {
+    evt.preventDefault();                          (метод який ліквідує всі дефолтні дії браузера(обновлення))
+    const formData = new FormData(evt.currentTarget);  (Метод FormData -- збираю дані з форми пос. нижче)
+    console.log(formData);    
+
+(пос.https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
+
+    formData.forEach((value, name) => {
+        console.log('handlerForm -> name', name);
+        console.log('handlerForm -> value', value);
+        console.log(formData);
+    });
+    const formElements = evt.currentTarget.elements; (За доп. FD знахожу посилання на свої input)
+    const email = formElements.email.value;       (знімаю дані з інпуту пошти)
+    const password = formElements.password.value; (знімаю дані з інпуту пароль)
+    if(email == ''){
+        alert('PLEASE WRITE EMAIL');      (Виводжу алерт, якщо поле пошти пусте)
+    }
+    if(password == ''){                   (Виводжу алерт, якщо поле пароля пусте)
+        alert('PLEASE WRITE PASSWORD');
+    }
+    evt.target.reset();                   (Обновлюю ФОРМУ!!! НЕ СТОРІНКУ)
+
+Здається завдання виконанні!?
+}
