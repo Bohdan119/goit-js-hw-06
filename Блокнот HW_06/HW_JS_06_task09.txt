@@ -1,0 +1,59 @@
+HW_06_task09
+
+Завдання:
+   Написати скрипт, який змінює кольори фону елементу <BODY> через інлайн-стиль по кліку на BUTTON.CHANGE-COLOR і виводить значення кольору в SPAN.COLOR.
+      Для генерування випадкового кольору вик. функ. getRandomHexColor (
+                
+                 function getRandomHexColor() {
+                   return `#${Math.floor(Math.random() * 16777215)
+                  .toString(16)
+                  .padStart(6, 0)}`;
+                }
+
+РОЗВ'ЯЗУВАННЯ:
+  1 Спосіб(мій):
+const colorBody = document.querySelector("body");
+const textSpan = document.querySelector(".color");             (ДОСТУКАТИСЬ ДО ЕЛЕМЕНТІВ З ЯКИМИ ПРАЦЮЄШ)
+const changeButton = document.querySelector(".change-color");
+
+function getRandomHexColor() {                             (ФУНКЦІЯ(задана в умові) ДЛЯ РАНДОМНОГО ВИБОРУ КОЛЬОРУ)
+return `#${Math.floor(Math.random() * 16777215).toString(16)
+.padStart(6, 0)
+}`;
+}
+              ВЛАСНЕ РОЗВ'ЯЗУВАННЯ:
+
+function handleChangeBackground(evt) {                     (ОГОЛОШУЄМО ФУНКЦІЮ ЗМІНИ КОЛЬОРУ)
+const color = getRandomHexColor(); 
+  
+colorBody.style.background = color; (У ВЛАСТИВІСТЬ body.style.background БУДЕ ЗАПИСАНИЙ КОЛІР getRandomHexColor())
+
+textSpan.textContent = color;              (У СПАНІ ВЛАСТИВІСТЬ textContent БУДЕ ДОРІВНЮВАТИ КОЛЬОРОВІ)
+                                     (довго не міг допетрати як це зробити.)
+console.log(evt);                   
+}
+changeButton.addEventListener("click", handleChangeBackground); 
+                         (ДОДАЄМО СЛУХАЧА НА ПОДІЮ 'click', НАША ФУНКЦІЯ ЯКУ МИ РОЗРОБИЛИ(handleChangeBackground))
+
+
+ СПОСІБ 2 (не мій):
+
+// function getRandomHexColor() {                                    (ТАКА Ж САМА ЗАДАНА З УМОВИ ФУНКЦІЯ)
+//   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+// }
+
+    	РОЗВ'ЯЗУВАННЯ:
+// function changeBackgroundColor() {   				 (ОГОЛОШУЄМО ФУНКЦІЮ ЗМІНИ КОЛЬОРУ)
+//   const color = getRandomHexColor();            
+//   document.body.style.background = color;  
+ 	  			(У ВЛАСТИВІСТЬ body.style.background БУДЕ ЗАПИСАНИЙ КОЛІР getRandomHexColor() 
+            							 У МЕНЕ БУЛА СТВОРЕНА ЗМІНА ТУТ ЗАПИС КОРОТШИЙ)
+
+//   document.querySelector('.color').textContent = color; 
+					      ( ТАК САМО ДО СПАН ДОСТУКАВСЯ БЕЗПОСЕРЕДНЬО У МІСЦІ ВИКОНАННЯ КОДУ)
+// }
+// const button = document.querySelector('.change-color');     (ДОСТУКАВСЯ ДО КНОПКИ(у моєму коді це є вгорі))
+// button.addEventListener('click', changeBackgroundColor);    (ДОДАВ СЛУХАЧА)
+
+  
+     

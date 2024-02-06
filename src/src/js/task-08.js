@@ -11,7 +11,7 @@ function handlerForm(evt) {
         console.log('handlerForm -> value', value);
         // console.log(formData);
     });
-    const formElements = evt.currentTarget.elements;
+    const formElements = evt.currenTarget.elements;
     const email = formElements.email.value;
     const password = formElements.password.value;
     if
